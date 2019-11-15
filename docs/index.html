@@ -19,6 +19,11 @@
       subMaxLevel: 4,
       loadNavbar: true,
       coverpage: true,
+      search: {
+        placeholder: '搜索',
+        noData: '找不到结果!',
+        depth: 3
+      },      
       alias: {
         '/.*/_sidebar.md': '/_sidebar.md', // 防止意外回退
         '/.*/_navbar.md': '/_navbar.md' // 防止意外回退
@@ -26,5 +31,11 @@
     }
   </script>
   <script src="//unpkg.com/docsify/lib/docsify.min.js"></script>
+  <script src="//unpkg.com/docsify/lib/plugins/search.js"></script>
+  <script src="//unpkg.com/prismjs/components/prism-bash.js"></script>
+  <script src="//unpkg.com/prismjs/components/prism-cpp.js"></script>
+  <script src="//unpkg.com/prismjs/components/prism-python.js"></script>
+  <script src="//unpkg.com/docsify-copy-code"></script>
+
 </body>
 </html>
