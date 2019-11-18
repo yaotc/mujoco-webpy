@@ -18,7 +18,8 @@
 
     - Contact Override: 'o_margin','o_solimp','o_solref'
 
-- value, int                
+- value, int or float
+    - depends on param name, look at the param describe below.              
 
 **Returns:**	
 
