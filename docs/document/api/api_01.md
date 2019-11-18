@@ -8,7 +8,7 @@
 
 
 **Parameters:**	   
-- name list:
+- name, str
     - Physics para: 'integrator','collision','cone','jacobian','solver'
 
     - Algorithmic para: 'timestep','iterations','tolerance','noslip_iterations',
@@ -17,7 +17,9 @@
     - Physical para: 'gravity','wind','magnetic','density','viscosity','impratio'
 
     - Contact Override: 'o_margin','o_solimp','o_solref'
-                
+
+- value, int                
+
 **Returns:**	
 
 - None.
