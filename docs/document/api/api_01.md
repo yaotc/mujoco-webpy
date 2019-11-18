@@ -1,10 +1,10 @@
 # Functions
 
 
-## `set_physices_para(name="timestep", value=0.005)`
+## `set_physics_para(name="timestep", value=0.005)`
 
 
-[[source]](http://www.mujoco.org/book/XMLreference.html) to set physices parameters, can appear many time.
+[[source]](http://www.mujoco.org/book/XMLreference.html) to set physics parameters, can appear many time.
 
 
 **Parameters:**	   
