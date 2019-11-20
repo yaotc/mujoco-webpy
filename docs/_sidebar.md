@@ -1,5 +1,6 @@
-* 序章
+* Get started
     * [mujoco-webpy介绍](document/intro/intro_01.md)
-* 架构篇
+    * [Install](document/install_01.md)
+    * [Demo](document/demo_01.md)
+* API
     * [API](document/api/api_01.md)
-    * [demo](architect/mall_arch_02.md)
