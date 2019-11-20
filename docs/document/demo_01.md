@@ -1,9 +1,8 @@
+# Demo
 
 
-```python
 
-```
-
+## 初始化
 
 ```python
 MODEL_XML1 ="""
@@ -44,6 +43,7 @@ print(sim.data.qpos)
       0.          0.        ]
 
 
+## 保存图片
 
 ```python
 from mujoco_webpy.mjviewer import MjWebViewerBasic
@@ -77,6 +77,7 @@ print("image.size =", image.size, "\n",   # w * h
      array.shape = (240, 320, 3)
 
 
+## 保存视频
 
 ```python
 from mujoco_webpy.mjviewer import MjWebViewerBasic
@@ -120,6 +121,7 @@ Video("test.mp4")
 
 ![gif](images/move1.gif "segment")
 
+## mujoco-py渲染方式
 
 ```python
 %%time
@@ -145,6 +147,9 @@ for i in range(100):
     Wall time: 830 ms
 
 
+## mujoco-webpy渲染方式
+
+**仅仅需要更改一行代码**
 
 ```python
 %%time
@@ -162,7 +167,7 @@ for i in range(100):
     ##################
     # your code here.#
     ##################
-    viewer.webrender()
+    viewer.webrender()   # use webrender() instead of render()
     
 
 ```
@@ -171,6 +176,7 @@ for i in range(100):
     Wall time: 63.7 ms
 
 
+## 设置物理参数
 
 ```python
 """
