@@ -195,7 +195,7 @@ for i in range(100):
 
 !> 若对应的value为str，应该传入int参数。如name: collision, value: [all, predefined, dynamic], 对应传入0, 1, 2。
 
-![mujoco](image/mujoco_param.png)
+![mujoco](images/mujoco_param.png)
 
 ```python
 """
