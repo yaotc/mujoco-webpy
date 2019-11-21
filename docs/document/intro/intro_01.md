@@ -1,4 +1,4 @@
-
+# Introduction
 ---
 
 # MuJoCo-webpy
@@ -22,7 +22,7 @@ Mujoco-webpy在Mujoco-py的基础上开发，希望能够：
 
 >    1. 使用主流编程语言Python开发
 > 
->    2. 接入简单，代码量少，使用`webrender()`仅需要更改一行代码
+>    2. 接入简单，代码量少，一行代码替换原有`render()`
 > 
 >    3. 与前端框架相对分离，易于扩展升级
 > 

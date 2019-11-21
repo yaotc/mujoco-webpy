@@ -1,3 +1,5 @@
+# Quick start
+
 # Preface
 
 Requirements and install mujoco can both follow mujoco-py and mujoco.
