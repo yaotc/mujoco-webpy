@@ -126,15 +126,15 @@ Basic json file:
 
 | name       | type | range | default | describe |
 |:-------:   | :-------:| :-------: | :-------:  |:------- |
-| flag_pert  | int |  [0, 1] |   1     | if *flag_pert* is 1: if *flag_paused* is 1, callback `move pose`, and if *flag_paused* is 0, callback `move pert`; if *flag_pert* is: None. *flag_pert* and *flag_cam* can't be both 0|
-| flag_cam   | int |  [0, 1] |   0     | if 1: callback function `move camera`; if 0: None. *flag_cam* and *flag_pert* can't be both 0|
+| flag_pert  | int |  [0, 1] |   1     | if *flag_pert* is 1: if *flag_paused* is 1, callback `move pose`, and if *flag_paused* is 0, callback `move pert`; if *flag_pert* is: None. *flag_pert* and *flag_cam* can't be both 1|
+| flag_cam   | int |  [0, 1] |   0     | if 1: callback function `move camera`; if 0: None. *flag_cam* and *flag_pert* can't be both 1|
 | flag_paused| int |  [0, 1] |   0     | only work if flag_pert is 1 |
 | select_id  | int |  [0, -) |  1     | select body id | 
-| move_action| int | [0, 1, 2, 3, 4, 5] | 1 | mouse action:  0: no action; 1: rotate, vertical plane; 2: rotate, horizontal plane; 3: move, vertical plane; 4: move, horizontal plane; 5: zoom |
+| move_action| int | [0, 1, 2, 3, 4, 5] | 1 | 0: no action; 1: rotate, vertical plane; 2: rotate, horizontal plane; 3: move, vertical plane; 4: move, horizontal plane; 5: zoom |
 | dx         | float| (-1, 1) |    0.0  |   relative dx |
 | dy         | float| (-1, 1) |    0.0  |   relative dy |
-| track_flag | int  | [0, 1] | 0 | if 1: camera will track num *track_id* object.|
-| track_id   | int  | [0, -) |  0   | if *track_flag* is 1, *track_id* is active.|
+| track_flag | int  | [0, 1] | 0 | if 1: camera will track num *track_id* object|
+| track_id   | int  | [0, -) |  0   | if *track_flag* is 1, *track_id* is active|
 
 
 ### Demo
