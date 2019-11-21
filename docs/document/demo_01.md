@@ -4,6 +4,8 @@
 
 ## 初始化
 
+> 以MuJoCo xml文件格式为基础，创建box和sphere作为示例。
+
 ```python
 MODEL_XML1 ="""
 <mujoco>
@@ -25,6 +27,7 @@ MODEL_XML1 ="""
 """
 ```
 
+> simulate与OpenAI mujoco-py调用相同。
 
 ```python
 import mujoco_webpy 
@@ -38,12 +41,16 @@ sim.step()
 print(sim.data.qpos)
 ```
 
+返回：
+
     [ 0.22        0.          0.09975475  1.          0.          0.
       0.         -0.22        0.          0.04975475  1.          0.
       0.          0.        ]
 
 
 ## 保存图片
+
+> 如果需要用到此功能，请确保环境包含PIL图像库。
 
 ```python
 from mujoco_webpy.mjviewer import MjWebViewerBasic
@@ -56,14 +63,14 @@ array, image = webviewer._rgbflow()
 
 image
 ```
-
+返回：
 
 
 
 ![png](images/output_5_0.png)
 
 
-
+!> 注意输出的array的shape为(Height, Width, Channel), 输出的image的size为(width, Height).更改width和height参见[API](document/api/api_01.md)
 
 ```python
 print("image.size =", image.size, "\n",   # w * h
@@ -71,6 +78,7 @@ print("image.size =", image.size, "\n",   # w * h
       "array.shape =", array.shape        # h * w * c
      )
 ```
+返回：
 
     image.size = (320, 240) 
      <class 'numpy.ndarray'> 
@@ -78,6 +86,8 @@ print("image.size =", image.size, "\n",   # w * h
 
 
 ## 保存视频
+
+!> 如果需要用到此功能，请确保环境包含opencv, ffmpeg。
 
 ```python
 from mujoco_webpy.mjviewer import MjWebViewerBasic
@@ -101,6 +111,7 @@ for i in range(100):
 
 webviewer.save_ori_video(camera_specs=buffer, filename="test.mp4")
 ```
+返回：
 
     video record -> Done.
 
@@ -111,7 +122,7 @@ from IPython.display import Video
 
 Video("test.mp4")
 ```
-
+返回：
 
 <!-- <video width="320" height="240" controls="controls"> 
   <source src="images/openaitest.mp4" type="video/mp4" >
@@ -122,6 +133,8 @@ Video("test.mp4")
 ![gif](images/move1.gif "segment")
 
 ## mujoco-py渲染方式
+
+> mujoco-py采用本地资源在本地模拟计算渲染方式。
 
 ```python
 %%time
@@ -149,7 +162,7 @@ for i in range(100):
 
 ## mujoco-webpy渲染方式
 
-**仅仅需要更改一行代码**
+> mujoco-webpy采用集群资源模拟计算，在前端渲染方式。**仅仅需要更改一行代码**。
 
 ```python
 %%time
@@ -178,6 +191,10 @@ for i in range(100):
 
 ## 设置物理参数
 
+> 设置mujoco原有界面的22个物理参数。
+
+!> 若对应的value为str，应该传入int参数。如name: collision, value: [all, predefined, dynamic], 对应传入0, 1, 2。
+
 ```python
 """
 Support parameters list:
@@ -197,7 +214,7 @@ viewer.set_physics_para("gravity", [0,0,-9.7])
 # or
 sim.model.opt.gravity[:] = [0, 0, -9.7]
 ```
+返回：
 
     Set gravity -> [0, 0, -9.7]. 
 
-!> 若对应的value为str，应该传入int参数。如name: collision, value: [all, predefined, dynamic], 对应传入0, 1, 2。
