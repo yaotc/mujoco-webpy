@@ -4,3 +4,5 @@
     * [Demo](document/demo_01.md)
 * API
     * [API](document/api/api_01.md)
+* web渲染接口标准
+    * [Interface](document/webinterface.md)
