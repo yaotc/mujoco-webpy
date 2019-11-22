@@ -23,11 +23,11 @@ As **web render engine**:
 
 >    step 1. initial render spaces and camera.
 > 
->    step 2. *web render engine* pull `Basic File` from `PATH_TO_NODE` and start render, then generate `Interaction File` and push to `PATH_TO_NODE` every `timestep 2`.
+>    step 2. *web render engine* pull `Basic File` from `PATH_TO_NODE` and render every `timestep 3`, then generate `Interaction File` and push to `PATH_TO_NODE` every `timestep 2`.
 > 
 >    step 3. *web render engine* will stop work when the process ends. 
 
-![webrender](images/webrender.png)
+![webrender](images/webrender2.png)
 
 # Interface Standard
 
