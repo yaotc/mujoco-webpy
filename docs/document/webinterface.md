@@ -17,7 +17,6 @@ As **Physics engine**:
 > 
 >    step 4. *Physics engine* pull `Interaction File` from `PATH_TO_NODE` and transform interaction into dynamics variables to finish simulation every `timestep 1`, then return to **step 2**. 
 
-!> `timestep 2` may be greater than or equal to `timestep 1`, it depends on server resources, network delay, file sizes and so on.
 
 As **web render engine**:
 
@@ -28,6 +27,9 @@ As **web render engine**:
 >    step 3. *web render engine* will stop work when the process ends. 
 
 ![webrender](images/webrender2.png)
+
+!> **Notice**: $$ timestep 1 \le timestep 2 \le timestep 3 $$, it depends on server resources, network delay, file sizes and so on.
+
 
 # Interface Standard
 
