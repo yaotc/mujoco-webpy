@@ -11,11 +11,11 @@ As **Physics engine**:
 
 >    step 1. initial object and camera parameters.
 > 
->    step 2. *Physics engine* generate `Basic File` to `PATH_TO_NODE`.
+>    step 2. *Physics engine* generate `Basic File` and push to `PATH_TO_NODE`.
 > 
->    step 3. *web render engine* pull `Basic File` from `PATH_TO_NODE` and start render, then generate `Interaction File` to `PATH_TO_NODE` every `render timestep`.
+>    step 3. *web render engine* pull `Basic File` from `PATH_TO_NODE` and start render, then generate `Interaction File` and push to `PATH_TO_NODE` every `render timestep`.
 > 
->    step 4. *Physics engine* pull `Interaction File` from `PATH_TO_NODE` and transform interaction into dynamics variables to finish simulation  every `simulation timestep`, then return to **step 2**. 
+>    step 4. *Physics engine* pull `Interaction File` from `PATH_TO_NODE` and transform interaction into dynamics variables to finish simulation every `simulation timestep`, then return to **step 2**. 
 
 !> `render timestep` may be greater than or equal `simulation timestep`, it depends on server resources, network delay, file sizes and so on.
 
@@ -23,7 +23,7 @@ As **web render engine**:
 
 >    step 1. initial render spaces and camera.
 > 
->    step 2. *web render engine* pull `Basic File` from `PATH_TO_NODE` and start render, then generate `Interaction File` to `PATH_TO_NODE` every `render timestep`.
+>    step 2. *web render engine* pull `Basic File` from `PATH_TO_NODE` and start render, then generate `Interaction File` and push to `PATH_TO_NODE` every `render timestep`.
 > 
 >    step 3. *web render engine* will stop work when the process ends. 
 
