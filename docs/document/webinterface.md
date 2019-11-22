@@ -39,23 +39,23 @@ As **web render engine**:
 |:-------:        | :---:  | :-------:| :------:           |:------- |
 | id              |  int   |  [0, -]  |    0               |  id |
 | body_name       |  str   |    -     | "world"            |  body_name |
-| body_pos        |$$array[3]$$|    -     |[0.0, 0.0, 0.0]     |  position offset rel. to parent body |
-| body_quat       |$$array[4]$$|    -     |[1.0, 0.0, 0.0, 0.0]|  orientation offset rel. to parent body | 
+| body_pos        |<code>array[3]</code>|    -     |[0.0, 0.0, 0.0]     |  position offset rel. to parent body |
+| body_quat       |<code>array[4]</code>|    -     |[1.0, 0.0, 0.0, 0.0]|  orientation offset rel. to parent body | 
 | geom_name       |  str   |    -     |  "null"            |  geom name |
 | geom_type       |  int   |  [0, 7]  |    -               |  support geom types, 0: plane; 1: height field; 2: sphere; 3: capsule; 4: ellipsoid; 5: cylinder; 6: box; 7: mesh |
-| geom_size       |$$array[3]$$|    -     |    -               |  geom-specific size parameters |
-| gemo_rgba       |$$array[4]$$|    -     |    -               |  rgba when material is omitted | 
-| geom_pos        |$$array[3]$$|    -     |    -               |   local position offset rel. to body |
-| geom_quat       |$$array[4]$$|    -     |    -               |  local orientation offset rel. to body |               
+| geom_size       |<code>array[3]</code>|    -     |    -               |  geom-specific size parameters |
+| gemo_rgba       |<code>array[4]</code>|    -     |    -               |  rgba when material is omitted | 
+| geom_pos        |<code>array[3]</code>|    -     |    -               |   local position offset rel. to body |
+| geom_quat       |<code>array[4]</code>|    -     |    -               |  local orientation offset rel. to body |               
 | cam_type        |  int   |  [0, 1]  |    0               |  0: free camera; 1: tracking camera, uses trackbodyid |  
 | can_trackbodyid |  int   |    -     |    0               |  trackbodyid | 
-| cam_lookat      |$$array[3]$$|    -     |    -               |  lookat point |
+| cam_lookat      |<code>array[3]</code>|    -     |    -               |  lookat point |
 | cam_azimuth     | float  | [0., 90.]|   90.0             |  distance to lookat point or tracked body |
 | cam_distance    | float  |    -     |    1.0             |  camera azimuth (deg) |
 | cam_elevation   | float  |    -     |  -45.0             |  camera elevation (deg) |
-| GLCam_pos       |$$2\times array[3]$$ | -      |  [[0.0, 0.0, 0.0], [0.0, 0.0, 0.0]]   | position|
-| GLCam_forward   |$$2\times array[3]$$ | -       |  [[0.0, 0.0, 0.0], [0.0, 0.0, 0.0]]  | forward direction|
-| GLCam_up        |$$2\times array[3]$$ | -      |  [[0.0, 0.0, 0.0], [0.0, 0.0, 0.0]]   | up direction|
+| GLCam_pos       |<code>2\times array[3]</code> | -      |  [[0.0, 0.0, 0.0], [0.0, 0.0, 0.0]]   | position|
+| GLCam_forward   |<code>2\times array[3]</code> | -       |  [[0.0, 0.0, 0.0], [0.0, 0.0, 0.0]]  | forward direction|
+| GLCam_up        |<code>2\times array[3]</code> | -      |  [[0.0, 0.0, 0.0], [0.0, 0.0, 0.0]]   | up direction|
 | GLCam_frustum_center | float| -     | -                  | hor. center (left,right set to match aspect)|
 | GLCam_frustum_bottom | float| -     | -                  | bottom|
 | GLCam_frustum_top    | float| -     | -                  | top|
