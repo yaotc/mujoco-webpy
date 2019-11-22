@@ -17,7 +17,7 @@ As **Physics engine**:
 > 
 >    step 4. *Physics engine* pull `Interaction File` from `PATH_TO_NODE` and transform interaction into dynamics variables to finish simulation every `simulation timestep`, then return to **step 2**. 
 
-!> `render timestep` may be greater than or equal `simulation timestep`, it depends on server resources, network delay, file sizes and so on.
+!> `render timestep` may be greater than or equal to `simulation timestep`, it depends on server resources, network delay, file sizes and so on.
 
 As **web render engine**:
 
