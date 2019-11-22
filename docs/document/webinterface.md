@@ -39,23 +39,28 @@ As **web render engine**:
 |:-------:        | :---:  | :-------:| :------:           |:------- |
 | id              |  int   |  [0, -]  |    0               |  id |
 | body_name       |  str   |    -     | "world"            |  body_name |
-| body_pos        |array[3]|    -     |[0.0, 0.0, 0.0]     |  position offset rel. to parent body |
-| body_quat       |array[4]|    -     |[1.0, 0.0, 0.0, 0.0]|  orientation offset rel. to parent body | 
+| body_pos        |$$array[3]$$|    -     |[0.0, 0.0, 0.0]     |  position offset rel. to parent body |
+| body_quat       |$$array[4]$$|    -     |[1.0, 0.0, 0.0, 0.0]|  orientation offset rel. to parent body | 
 | geom_name       |  str   |    -     |  "null"            |  geom name |
 | geom_type       |  int   |  [0, 7]  |    -               |  support geom types, 0: plane; 1: height field; 2: sphere; 3: capsule; 4: ellipsoid; 5: cylinder; 6: box; 7: mesh |
-| geom_size       |array[3]|    -     |    -               |  geom-specific size parameters |
-| gemo_rgba       |array[4]|    -     |    -               |  rgba when material is omitted | 
-| geom_pos        |array[3]|    -     |    -               |   local position offset rel. to body |
-| geom_quat       |array[4]|    -     |    -               |  local orientation offset rel. to body |               
+| geom_size       |$$array[3]$$|    -     |    -               |  geom-specific size parameters |
+| gemo_rgba       |$$array[4]$$|    -     |    -               |  rgba when material is omitted | 
+| geom_pos        |$$array[3]$$|    -     |    -               |   local position offset rel. to body |
+| geom_quat       |$$array[4]$$|    -     |    -               |  local orientation offset rel. to body |               
 | cam_type        |  int   |  [0, 1]  |    0               |  0: free camera; 1: tracking camera, uses trackbodyid |  
 | can_trackbodyid |  int   |    -     |    0               |  trackbodyid | 
-| cam_lookat      |array[3]|    -     |    -               |  lookat point |
+| cam_lookat      |$$array[3]$$|    -     |    -               |  lookat point |
 | cam_azimuth     | float  | [0., 90.]|   90.0             |  distance to lookat point or tracked body |
 | cam_distance    | float  |    -     |    1.0             |  camera azimuth (deg) |
 | cam_elevation   | float  |    -     |  -45.0             |  camera elevation (deg) |
-          
-
-
+| GLCam_pos       |$$2\times array[3]$$ | -      |  [[0.0, 0.0, 0.0], [0.0, 0.0, 0.0]]   | position|
+| GLCam_forward   |$$2\times array[3]$$ | -       |  [[0.0, 0.0, 0.0], [0.0, 0.0, 0.0]]  | forward direction|
+| GLCam_up        |$$2\times array[3]$$ | -      |  [[0.0, 0.0, 0.0], [0.0, 0.0, 0.0]]   | up direction|
+| GLCam_frustum_center | float| -     | -                  | hor. center (left,right set to match aspect)|
+| GLCam_frustum_bottom | float| -     | -                  | bottom|
+| GLCam_frustum_top    | float| -     | -                  | top|
+| GLCam_frustum_near   | float| -     | -                  | near|
+| GLCam_frustum_far    | float| -     | -                  | far|
 
 ### Demo
 
@@ -64,7 +69,7 @@ Basic json file:
 ```json
 
 "[
-{\"id\": 0,
+ {\"id\": 0,
  \"body_name\": \"world\",
  \"body_pos\": [0.0, 0.0, 0.0],
  \"body_quat\": [1.0, 0.0, 0.0, 0.0],
@@ -74,12 +79,20 @@ Basic json file:
  \"gemo_rgba\": [0.5, 0.5, 0.5, 1.0],
  \"geom_pos\": [0.0, 0.0, 0.0],
  \"geom_quat\": [1.0, 0.0, 0.0, 0.0],
- \"cam_type\": 0,
- \"can_trackbodyid\": -1,
- \"cam_lookat\": [0.0, 0.0, 0.05],
+ \"cam_type\": 1,
+ \"can_trackbodyid\": 2,
+ \"cam_lookat\": [-0.43999999991037053, 4.6946875076341555e-20, 0.049892244236603975],
  \"cam_azimuth\": 90.0,
- \"cam_distance\": 0.9891287847477921,
- \"cam_elevation\": -45.0}, 
+ \"cam_distance\": 3.1545447180384585,
+ \"cam_elevation\": -45.0,
+ \"GLCam_pos\": [[-0.4740000069141388, -2.230599880218506, 2.2804923057556152], [-0.4059999883174896, -2.230599880218506, 2.2804923057556152]],
+ \"GLCam_forward\": [[4.329780301713277e-17, 0.7071067690849304, -0.7071067690849304], [4.329780301713277e-17, 0.7071067690849304, -0.7071067690849304]],
+ \"GLCam_up\": [[4.329780301713277e-17, 0.7071067690849304, 0.7071067690849304], [4.329780301713277e-17, 0.7071067690849304, 0.7071067690849304]],
+ \"GLCam_frustum_center\": [0.0, 0.0],
+ \"GLCam_frustum_bottom\": [-0.004097105469554663, -0.004097105469554663],
+ \"GLCam_frustum_top\": [0.004097105469554663, 0.004097105469554663],
+ \"GLCam_frustum_near\": [0.009891287423670292, 0.009891287423670292],
+ \"GLCam_frustum_far\": [49.45643997192383, 49.45643997192383]}, 
 
  {\"id\": 1,
  \"body_name\": \"body1\",
@@ -91,12 +104,20 @@ Basic json file:
  \"gemo_rgba\": [0.10000000149011612, 0.800000011920929, 0.800000011920929, 1.0],
  \"geom_pos\": [0.0, 0.0, 0.0],
  \"geom_quat\": [1.0, 0.0, 0.0, 0.0],
- \"cam_type\": 0,
- \"can_trackbodyid\": -1,
- \"cam_lookat\": [0.0, 0.0, 0.05],
+ \"cam_type\": 1,
+ \"can_trackbodyid\": 2,
+ \"cam_lookat\": [-0.43999999991037053, 4.6946875076341555e-20, 0.049892244236603975],
  \"cam_azimuth\": 90.0,
- \"cam_distance\": 0.9891287847477921,
- \"cam_elevation\": -45.0}, 
+ \"cam_distance\": 3.1545447180384585,
+ \"cam_elevation\": -45.0,
+ \"GLCam_pos\": [[-0.4740000069141388, -2.230599880218506, 2.2804923057556152], [-0.4059999883174896, -2.230599880218506, 2.2804923057556152]],
+ \"GLCam_forward\": [[4.329780301713277e-17, 0.7071067690849304, -0.7071067690849304], [4.329780301713277e-17, 0.7071067690849304, -0.7071067690849304]],
+ \"GLCam_up\": [[4.329780301713277e-17, 0.7071067690849304, 0.7071067690849304], [4.329780301713277e-17, 0.7071067690849304, 0.7071067690849304]],
+ \"GLCam_frustum_center\": [0.0, 0.0],
+ \"GLCam_frustum_bottom\": [-0.004097105469554663, -0.004097105469554663],
+ \"GLCam_frustum_top\": [0.004097105469554663, 0.004097105469554663],
+ \"GLCam_frustum_near\": [0.009891287423670292, 0.009891287423670292],
+ \"GLCam_frustum_far\": [49.45643997192383, 49.45643997192383]}, 
 
  {\"id\": 2,
  \"body_name\": \"body2\",
@@ -108,13 +129,20 @@ Basic json file:
  \"gemo_rgba\": [1.0, 1.0, 0.0, 1.0],
  \"geom_pos\": [-0.22, 0.0, 0.0],
  \"geom_quat\": [1.0, 0.0, 0.0, 0.0],
- \"cam_type\": 0,
- \"can_trackbodyid\": -1,
- \"cam_lookat\": [0.0, 0.0, 0.05],
+ \"cam_type\": 1,
+ \"can_trackbodyid\": 2,
+ \"cam_lookat\": [-0.43999999991037053, 4.6946875076341555e-20, 0.049892244236603975],
  \"cam_azimuth\": 90.0,
- \"cam_distance\": 0.9891287847477921,
- \"cam_elevation\": -45.0}
-
+ \"cam_distance\": 3.1545447180384585,
+ \"cam_elevation\": -45.0,
+ \"GLCam_pos\": [[-0.4740000069141388, -2.230599880218506, 2.2804923057556152], [-0.4059999883174896, -2.230599880218506, 2.2804923057556152]],
+ \"GLCam_forward\": [[4.329780301713277e-17, 0.7071067690849304, -0.7071067690849304], [4.329780301713277e-17, 0.7071067690849304, -0.7071067690849304]],
+ \"GLCam_up\": [[4.329780301713277e-17, 0.7071067690849304, 0.7071067690849304], [4.329780301713277e-17, 0.7071067690849304, 0.7071067690849304]],
+ \"GLCam_frustum_center\": [0.0, 0.0],
+ \"GLCam_frustum_bottom\": [-0.004097105469554663, -0.004097105469554663],
+ \"GLCam_frustum_top\": [0.004097105469554663, 0.004097105469554663],
+ \"GLCam_frustum_near\": [0.009891287423670292, 0.009891287423670292],
+ \"GLCam_frustum_far\": [49.45643997192383, 49.45643997192383]}
 ]"
 
 ```
@@ -143,15 +171,16 @@ Basic json file:
 Interaction json file:
 
 ```json
-"{
- \"flag_pert\": 0,
- \"flag_cam\": 0,
+
+"{\"flag_pert\": 0,
+ \"flag_cam\": 1,
  \"flag_paused\": 0,
  \"select_id\": 0,
  \"move_action\": 3,
  \"dx\": 0.0,
- \"dy\": 0.0,
- \"track_flag\": 0,
- \"track_id\": 0
+ \"dy\": -0.005,
+ \"track_flag\": 1,
+ \"track_id\": 2
 }"
+
 ```
