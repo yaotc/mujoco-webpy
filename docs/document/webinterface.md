@@ -13,22 +13,22 @@ As **Physics engine**:
 > 
 >    step 2. *Physics engine* generate `Basic File` and push to `PATH_TO_NODE`.
 > 
->    step 3. *web render engine* pull `Basic File` from `PATH_TO_NODE` and start render, then generate `Interaction File` and push to `PATH_TO_NODE` every `timestep 2`.
+>    step 3. *web render engine* pull `Basic File` from `PATH_TO_NODE` and start render, then generate `Interaction File` and push to `PATH_TO_NODE` every `time 2`.
 > 
->    step 4. *Physics engine* pull `Interaction File` from `PATH_TO_NODE` and transform interaction into dynamics variables to finish simulation every `timestep 1`, then return to **step 2**. 
+>    step 4. *Physics engine* pull `Interaction File` from `PATH_TO_NODE` and transform interaction into dynamics variables to finish simulation every `time 1`, then return to **step 2**. 
 
 
 As **web render engine**:
 
 >    step 1. initial render spaces and camera.
 > 
->    step 2. *web render engine* pull `Basic File` from `PATH_TO_NODE` and render every `timestep 3`, then generate `Interaction File` and push to `PATH_TO_NODE` every `timestep 2`.
+>    step 2. *web render engine* pull `Basic File` from `PATH_TO_NODE`, and render every `time 3`, then generate `Interaction File` and push to `PATH_TO_NODE` every `time 2`.
 > 
 >    step 3. *web render engine* will stop work when the process ends. 
 
-![webrender](images/webrender5.png)
+![webrender](images/webrender6.png)
 
-!> **Notice**: $$ timestep 1 \le timestep 2 \le timestep 3 $$, it depends on server resources, network delay, file sizes and so on.
+!> **Notice**: $$ time 1 \le time 2 \le time 3 $$ It depends on server resources, network delay, file sizes and so on.
 
 
 # Interface Standard
